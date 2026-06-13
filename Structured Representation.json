@@ -1,0 +1,57 @@
+{
+"system name": "Smart Traffic Signal Controller",
+"peas": {
+"performance measures": [
+"average vehicle waiting time",
+"intersection throughput",
+"average queue length",
+"traffic violation detection accuracy",
+"emergency vehicle priority success rate",
+"false violation alert rate"
+],
+"environment": "Urban road intersections with cars, motorcycles, buses, trucks, pedestrians, cyclists, emergency vehicles, traffic police, varying weather conditions, and day/night traffic.",
+"actuators": [
+"traffic light controller",
+"pedestrian crossing signals",
+"network communication system",
+"police notification system",
+"violation report generation system"
+],
+"sensors": [
+"high resolution rgb cameras",
+"automatic number plate recognition cameras",
+"inductive loop vehicle detectors",
+"radar and lidar traffic sensors",
+"emergency vehicle transponder receivers",
+"weather sensors",
+"gps data from connected vehicles"
+]
+},
+"environment classification": {
+"observability": {
+"choice": "Partially Observable",
+"justification": " The AI cannot observe every vehicle and future traffic event because some information may be hidden by obstacles, weather, or sensor limitations."
+},
+"agents": {
+"choice": "Multi-agent",
+"justification": " Multiple intersections and many road users interact with each other"
+},
+"determinism": {
+"choice": "Stochastic",
+"justification": " Driver behavior, accidents, weather changes, and traffic violations introduce uncertainty."
+},
+"episodicity": {
+"choice": "Sequential",
+"justification": " Each traffic-light decision affects future traffic flow and congestion levels."
+},
+"dynamics": {
+"choice": "Dynamic",
+"justification": " Traffic conditions continuously change while the AI is operating. "
+},
+"discreteness": {
+"choice": "Continuous",
+"justification": " Vehicle speeds, traffic density, and signal timings change continuously over time."
+}
+},
+"utility function": "U = 0.5 * TrafficFlow + 0.3 * SafetyScore + 0.2 * ViolationDetectionAccuracy"
+}
